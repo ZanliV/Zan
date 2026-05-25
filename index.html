@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIPC Services | Company Registration &amp; Compliance, Pretoria</title>
+  <meta name="description" content="CIPC Services offers company registrations, annual returns, director amendments, beneficial ownership, and company secretarial services in Pretoria, South Africa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.19.0/fonts/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #185FA5;
+      --blue-dark: #0C447C;
+      --blue-light: #E6F1FB;
+      --text: #1a1a18;
+      --text-muted: #6b6b67;
+      --text-light: #9a9a96;
+      --bg: #ffffff;
+      --bg-secondary: #f7f6f2;
+      --border: rgba(0,0,0,0.10);
+      --border-strong: rgba(0,0,0,0.18);
+      --radius: 10px;
+      --radius-lg: 14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 2rem;
+      border-bottom: 0.5px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+
+    .logo { font-size: 17px; font-weight: 500; letter-spacing: -0.3px; }
+    .logo span { color: var(--blue); }
+
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { font-size: 14px; color: var(--text-muted); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      font-size: 13px;
+      background: var(--blue);
+      color: white !important;
+      padding: 7px 16px;
+      border-radius: var(--radius);
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--blue-dark) !important; }
+
+    .hamburger { display: none; cursor: pointer; background: none; border: none; font-size: 22px; color: var(--text); }
+
+    /* HERO */
+    .hero {
+      padding: 5.5rem 2rem 4.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 500;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      max-width: 540px;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 strong { font-weight: 500; }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 450px;
+      line-height: 1.75;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      border: none;
+      padding: 11px 24px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: var(--blue-dark); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      border: 0.5px solid var(--border-strong);
+      padding: 11px 24px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-ghost:hover { color: var(--text); border-color: var(--text); }
+
+    /* DIVIDER */
+    .divider { height: 0.5px; background: var(--border); margin: 0 2rem; }
+
+    /* WRAPPER */
+    .section-wrap { max-width: 900px; margin: 0 auto; }
+
+    /* SERVICES */
+    .services { padding: 4rem 2rem; }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .service-card {
+      padding: 1.6rem;
+      background: var(--bg);
+      border-right: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      transition: background 0.15s;
+    }
+    .service-card:hover { background: var(--bg-secondary); }
+
+    .service-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius);
+      background: var(--blue-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .service-icon i { font-size: 19px; color: var(--blue); }
+
+    .service-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+    .service-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* WHY */
+    .why {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .why-text h2 {
+      font-size: 30px;
+      font-weight: 300;
+      letter-spacing: -0.8px;
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+
+    .why-text p { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.75rem; }
+
+    .why-points { display: flex; flex-direction: column; gap: 11px; }
+    .why-point { display: flex; gap: 10px; align-items: flex-start; }
+    .why-point i { font-size: 16px; color: var(--blue); margin-top: 3px; flex-shrink: 0; }
+    .why-point span { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    .why-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--border);
+    }
+
+    .stat-box {
+      padding: 1.75rem 1.25rem;
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .stat-box .num {
+      font-size: 30px;
+      font-weight: 300;
+      letter-spacing: -1px;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-box .lbl { font-size: 12px; color: var(--text-muted); }
+
+    /* PROCESS */
+    .process { padding: 4rem 2rem; }
+
+    .steps {
+      margin-top: 1.5rem;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .step {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.35rem 1.5rem;
+      border-bottom: 0.5px solid var(--border);
+      background: var(--bg);
+      align-items: flex-start;
+      transition: background 0.15s;
+    }
+    .step:last-child { border-bottom: none; }
+    .step:hover { background: var(--bg-secondary); }
+
+    .step-num {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--blue);
+      background: var(--blue-light);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step h4 { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+    .step p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* CONTACT */
+    .contact {
+      background: var(--bg-secondary);
+      padding: 4.5rem 2rem;
+    }
+
+    .contact-inner { max-width: 500px; margin: 0 auto; }
+    .contact h2 { font-size: 28px; font-weight: 300; letter-spacing: -0.6px; margin-bottom: 0.5rem; }
+    .contact > .contact-inner > p { font-size: 15px; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.75; }
+
+    .contact-methods { display: flex; flex-direction: column; gap: 10px; }
+
+    .contact-method {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 1.1rem 1.35rem;
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.15s;
+    }
+    .contact-method:hover { border-color: var(--border-strong); }
+    .contact-method i { font-size: 20px; color: var(--blue); flex-shrink: 0; }
+    .cm-label { font-size: 11px; color: var(--text-muted); margin-bottom: 2px; }
+    .cm-value { font-size: 14px; font-weight: 500; }
+
+    /* FOOTER */
+    footer {
+      padding: 1.5rem 2rem;
+      border-top: 0.5px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    footer p { font-size: 13px; color: var(--text-muted); }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      .hero { padding: 3.5rem 1.5rem 3rem; }
+      .hero h1 { font-size: 32px; }
+      .why { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem; }
+      .why-stats { grid-template-columns: 1fr 1fr; }
+      .services { padding: 3rem 1.5rem; }
+      .process { padding: 3rem 1.5rem; }
+      .contact { padding: 3rem 1.5rem; }
+      .divider { margin: 0 1.5rem; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      footer { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">CIPC <span>Services</span></div>
+    <div class="nav-links" id="nav-menu">
+      <a href="#services-section">Services</a>
+      <a href="#process-section">How it works</a>
+      <a href="#about-section">About</a>
+      <a href="#contact-section" class="nav-cta">Get in touch</a>
+    </div>
+    <button class="hamburger" id="hamburger-btn" aria-label="Open menu">
+      <i class="ti ti-menu-2"></i>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero section-wrap">
+    <div class="hero-tag">CIPC Compliance Specialists · Pretoria</div>
+    <h1>Company registration &amp; compliance, <strong>done properly.</strong></h1>
+    <p>We handle the paperwork so you don't have to. From new company registrations to annual returns and director changes, we keep your business compliant with the CIPC.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'})">Get started today</button>
+      <button class="btn-ghost" onclick="document.getElementById('services-section').scrollIntoView({behavior:'smooth'})">View services</button>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SERVICES -->
+  <section class="services section-wrap" id="services-section">
+    <div class="section-label">What we do</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-building" aria-hidden="true"></i></div>
+        <h3>Company registrations</h3>
+        <p>Register your new private company (Pty) Ltd quickly and correctly with the CIPC.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-calendar-due" aria-hidden="true"></i></div>
+        <h3>Annual returns</h3>
+        <p>Stay compliant — we file your annual return on time and keep your company active.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-user-edit" aria-hidden="true"></i></div>
+        <h3>Director amendments</h3>
+        <p>Appoint or resign directors and update company details with the CIPC accurately.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-eye" aria-hidden="true"></i></div>
+        <h3>Beneficial ownership</h3>
+        <p>Compile and submit your beneficial ownership register to meet the latest compliance requirements.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-file-text" aria-hidden="true"></i></div>
+        <h3>Company secretarial</h3>
+        <p>Minutes, resolutions, MOI amendments, and governance documentation — handled professionally.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-certificate" aria-hidden="true"></i></div>
+        <h3>CIPC compliance</h3>
+        <p>Certificates, CoR39 filings, deregistrations, and status corrections done right.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- WHY -->
+  <section class="why section-wrap" id="about-section">
+    <div class="why-text">
+      <h2>Why choose CIPC Services?</h2>
+      <p>We are a specialist boutique practice with a legal and compliance background. You work directly with a qualified professional — no hand-offs, no delays.</p>
+      <div class="why-points">
+        <div class="why-point"><i class="ti ti-check" aria-hidden="true"></i><span>Admitted attorney with CIPC expertise</span></div>
+        <div class="why-point"><i class="ti ti-check" aria-hidden="true"></i><span>Fast turnaround with clear communication</span></div>
+        <div class="why-point"><i class="ti ti-check" aria-hidden="true"></i><span>Transparent, fixed-fee pricing</span></div>
+        <div class="why-point"><i class="ti ti-check" aria-hidden="true"></i><span>Based in Pretoria — serving clients nationally</span></div>
+      </div>
+    </div>
+    <div class="why-stats">
+      <div class="stat-box"><div class="num">100%</div><div class="lbl">Compliance focused</div></div>
+      <div class="stat-box"><div class="num">Fast</div><div class="lbl">Turnaround times</div></div>
+      <div class="stat-box"><div class="num">Fixed</div><div class="lbl">Transparent fees</div></div>
+      <div class="stat-box"><div class="num">Direct</div><div class="lbl">Personal service</div></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROCESS -->
+  <section class="process section-wrap" id="process-section">
+    <div class="section-label">How it works</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h4>Get in touch</h4>
+          <p>Contact us via WhatsApp or email. Tell us what you need and we'll confirm exactly what's required.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h4>Send us your documents</h4>
+          <p>We'll give you a simple checklist. You send us the supporting documents — ID copies, proof of address, and so on.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h4>We handle the CIPC</h4>
+          <p>We lodge the application, follow up with the CIPC, and keep you updated throughout the process.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h4>You receive your documents</h4>
+          <p>Once the CIPC confirms, we send you all official documents and certificates. Done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact-section">
+    <div class="contact-inner">
+      <h2>Ready to get started?</h2>
+      <p>Reach out directly — we respond quickly and always provide a clear quote upfront before any work begins.</p>
+      <div class="contact-methods">
+        <div class="contact-method">
+          <i class="ti ti-brand-whatsapp" aria-hidden="true"></i>
+          <div>
+            <div class="cm-label">WhatsApp (preferred)</div>
+            <div class="cm-value">+27 [your number]</div>
+          </div>
+        </div>
+        <div class="contact-method">
+          <i class="ti ti-mail" aria-hidden="true"></i>
+          <div>
+            <div class="cm-label">Email</div>
+            <div class="cm-value">info@cipcservices.co.za</div>
+          </div>
+        </div>
+        <div class="contact-method">
+          <i class="ti ti-map-pin" aria-hidden="true"></i>
+          <div>
+            <div class="cm-label">Location</div>
+            <div class="cm-value">Pretoria East, Gauteng</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 CIPC Services. Pretoria, South Africa.</p>
+    <p>Professional CIPC compliance services</p>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('hamburger-btn');
+    const menu = document.getElementById('nav-menu');
+    btn.addEventListener('click', () => {
+      const open = menu.style.display === 'flex';
+      menu.style.display = open ? 'none' : 'flex';
+      menu.style.flexDirection = 'column';
+      menu.style.position = 'absolute';
+      menu.style.top = '60px';
+      menu.style.right = '1.5rem';
+      menu.style.background = '#fff';
+      menu.style.border = '0.5px solid rgba(0,0,0,0.12)';
+      menu.style.borderRadius = '10px';
+      menu.style.padding = '1rem 1.5rem';
+      menu.style.gap = '1rem';
+      menu.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+      if (open) menu.style.display = 'none';
+    });
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => { menu.style.display = 'none'; });
+    });
+  </script>
+
+</body>
+</html>
